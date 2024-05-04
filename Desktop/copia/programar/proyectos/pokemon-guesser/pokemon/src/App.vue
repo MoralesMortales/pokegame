@@ -4,7 +4,7 @@ import type { Pokemon } from 'env';
   import { ref } from 'vue';
   
 
-  const pokemonArr = ref<Pokemon[]>([])
+  const pokemonArr = ref<any>([])
   const pokemon = ref<Pokemon>()
 
   const mixPokemonArray = async()=>{

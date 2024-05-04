@@ -3,7 +3,7 @@ import type { Pokemon } from "env";
 
 const getPokemons = (): number[] =>{
     const pokemonArr = Array.from(Array(650))
-    return pokemonArr.map((_, index) => index + 1)
+    return pokemonArr.map((_, index) => index+1)
 }
 const pokemonName = async(pokemons : number[]): Promise<Pokemon[]> =>{
     if(pokemons.length != 4) throw "Error pinche pendejo"
@@ -31,6 +31,7 @@ const getPokemonOptions =async () => {
     const mixedPokemons = getPokemons().sort(()=>Math.random() -0.5)
     console.log(mixedPokemons)
     const pokemons = await pokemonName(mixedPokemons.splice(0,4))
+    return pokemons
 }
 
 export default getPokemonOptions
