@@ -27,8 +27,17 @@
       message.value = `Correcto, era un ${pokemon.value.name}`
     }
     else{
-      message.value = `Mongolo, eso es un ${pokemon.value?.name}`
+      message.value = `Eres marico o te amamantaban con pegamento, eso es un ${pokemon.value?.name}`
     }
+  }
+
+  const newGame =()=>{
+    showPokemon.value = false
+    showAnswers.value = false
+    pokemonArr.value = []
+    pokemon.value = undefined
+
+    mixPokemonArray()
   }
 
   mixPokemonArray()
@@ -39,12 +48,10 @@
     <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
     <PokemonOptions @selection-pokemon="checkAnswer" :pokemons="pokemonArr" /> 
   </div>
-
-  <!-- <div class="flex justify-center mt-14" v-for=""pokemon in pokemons
-  <p class="text-9xl">hola tonotos</p> -->
-    <div class="text-center">
-      <p class="text-2xl"> {{ message }}</p>
-    </div>
+  <div class="flex flex-col text-center">
+    <p class="text-3xl font-bold"> {{ message }}</p>
+    <button @click="newGame" class="font-bold">New Game</button>
+  </div>
 
 </template>
 

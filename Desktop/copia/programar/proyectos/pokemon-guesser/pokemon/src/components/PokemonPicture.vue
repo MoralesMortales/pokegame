@@ -1,7 +1,7 @@
 <template>
     <div  class="flex justify-center">
-        <img v-if="!showPokemon" class="hidden-pokemon":src="img" alt="imagen-pokemon" />
-        <img v-else :src="img" alt="imagen-pokemon" />
+        <img v-if="!showPokemon" class="hidden-pokemon w-96 h-96":src="img" alt="imagen-pokemon" />
+        <img v-else :src="img" alt="imagen-pokemon" class="w-96 h-96"/>
     </div>
 </template>
 
