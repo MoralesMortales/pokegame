@@ -11,6 +11,7 @@
   const showPokemon = ref<boolean>(false)
   const showAnswers = ref<boolean>(false)
   const message = ref<string>()
+  const streack = ref<number>(0)
 
   const mixPokemonArray = async()=>{
     pokemonArr.value = await getPokemonOptions()
@@ -24,10 +25,23 @@
     showAnswers.value = true
 
     if(selectedId === pokemon.value?.id){
+      streack.value++
       message.value = `Correcto, era un ${pokemon.value.name}`
     }
     else{
-      message.value = `Eres marico o te amamantaban con pegamento, eso es un ${pokemon.value?.name}`
+      streack.value = 0
+      const motivationalMessage = [
+        `Mira huele pega, eso es un ${pokemon.value?.name}`,
+        `Marico debe ser que te lanzaron contra el suelo de pequeño, eso es un ${pokemon.value?.name}`,
+        `Mamabicho te encanta que te maltraten?, eso es un ${pokemon.value?.name}`,
+        `Eres marico o te amamantaban con pegamento?, eso es un ${pokemon.value?.name}`,
+        `Eres jugador de fate? porque te faltan neuronas, eso es un ${pokemon.value?.name}`,
+        `Desgracia familiar, eso es un ${pokemon.value?.name}`,
+        `Fenomeno de 3 cromosomas, eso es un ${pokemon.value?.name}`,
+        `te falta escencia, eso es un ${pokemon.value?.name}`
+      ]
+      const randomInt = Math.floor(Math.random() * motivationalMessage.length)
+      message.value = motivationalMessage[randomInt]
     }
   }
 
@@ -46,11 +60,17 @@
 <template>
   <div class="m-12">
     <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
+    <div class="flex justify-center text-4xl font-bold mt-12">
+       {{ streack }}
+    </div>
     <PokemonOptions @selection-pokemon="checkAnswer" :pokemons="pokemonArr" /> 
   </div>
-  <div class="flex flex-col text-center">
+
+  <div v-if="showAnswers" class="flex flex-col text-center">
     <p class="text-3xl font-bold"> {{ message }}</p>
-    <button @click="newGame" class="font-bold">New Game</button>
+    <div>
+      <button @click="newGame" class="font-bold">New Game</button>
+    </div>   
   </div>
 
 </template>
