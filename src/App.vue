@@ -4,32 +4,29 @@
   import { ref } from 'vue';
   import PokemonOptions from './components/PokemonOptions.vue';
   import PokemonPicture from './components/PokemonPicture.vue';
-  
-  const pokemonArr = ref<any>([])
-  const pokemon = ref<Pokemon>()
-  const showPokemon = ref<boolean>(false)
-  const showAnswers = ref<boolean>(false)
-  const message = ref<string>()
-  const streack = ref<number>(0)
 
-  const mixPokemonArray = async()=>{
-    pokemonArr.value = await getPokemonOptions()
-    const randomInt = Math.floor(Math.random() * 4)
-    pokemon.value = pokemonArr.value[randomInt]
-    
-  }
+  const pokemonArr = ref<any>([]);
+  const pokemon = ref<Pokemon>();
+  const showPokemon = ref<boolean>(false);
+  const showAnswers = ref<boolean>(false);
+  const message = ref<string>();
+  const streack = ref<number>(0);
 
-  const checkAnswer = (selectedId: number)=>{
+  const mixPokemonArray = async () => {
+    pokemonArr.value = await getPokemonOptions();
+    const randomInt = Math.floor(Math.random() * 4);
+    pokemon.value = pokemonArr.value[randomInt];
+  };
 
-    showPokemon.value = true
-    showAnswers.value = true
+  const checkAnswer = (selectedId: number) => {
+    showPokemon.value = true;
+    showAnswers.value = true;
 
-    if(selectedId === pokemon.value?.id){
-      streack.value++
-      message.value = `Correcto, era un ${pokemon.value.name}`
-    }
-    else{
-      streack.value = 0
+    if (selectedId === pokemon.value?.id) {
+      streack.value++;
+      message.value = `Correcto, era un ${pokemon.value.name}`;
+    } else {
+      streack.value = 0;
       const motivationalMessage = [
         `Mira huele pega, eso es un ${pokemon.value?.name}`,
         `Marico debe ser que te lanzaron contra el suelo de pequeño, eso es un ${pokemon.value?.name}`,
@@ -38,24 +35,23 @@
         `Eres jugador de fate? porque te faltan neuronas, eso es un ${pokemon.value?.name}`,
         `Desgracia familiar, eso es un ${pokemon.value?.name}`,
         `Fenomeno de 3 cromosomas, eso es un ${pokemon.value?.name}`,
-        `te falta escencia, eso es un ${pokemon.value?.name}`
-      ]
-      const randomInt = Math.floor(Math.random() * motivationalMessage.length)
-      message.value = motivationalMessage[randomInt]
+        `te falta escencia, eso es un ${pokemon.value?.name}`,
+      ];
+      const randomInt = Math.floor(Math.random() * motivationalMessage.length);
+      message.value = motivationalMessage[randomInt];
     }
-  }
-  
-  const newGame =()=>{
-    showPokemon.value = false
-    showAnswers.value = false
-    pokemonArr.value = []
-    pokemon.value = undefined
+  };
 
-    mixPokemonArray()
-  }
+  const newGame = () => {
+    showPokemon.value = false;
+    showAnswers.value = false;
+    pokemonArr.value = [];
+    pokemon.value = undefined;
 
+    mixPokemonArray();
+  };
 
-  mixPokemonArray()
+  mixPokemonArray();
 </script>
 
 <template>
@@ -67,18 +63,15 @@
     </div>
 
     <PokemonOptions
-    
-    :pokemon1="pokemon" 
-    :show-pokemon="showPokemon" 
-    :show-answers="showAnswers"
-    @selection-pokemon="checkAnswer" 
-    :pokemons="pokemonArr" /> 
-  </div>
+      :pokemon1="pokemon"
+      :show-pokemon="showPokemon"
+      :show-answers="showAnswers"
+      @selection-pokemon="checkAnswer"
+      :pokemons="pokemonArr"
+    />
 
     <div class=" h-2/6">
-    
-      <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class=""/>  
-  
+      <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class="" />
     </div>
 
     <div class="flex justify-center text-4xl font-bold h-1/6 items-center">
@@ -86,25 +79,18 @@
     </div>
 
     <div class="">
-      
-      <PokemonOptions 
-      :pokemon1="pokemon"
-      :show-pokemon="showPokemon" 
-      :show-answers="showAnswers" 
-      @selection-pokemon="checkAnswer" 
-      :pokemons="pokemonArr"/>
-
+      <PokemonOptions
+        :pokemon1="pokemon"
+        :show-pokemon="showPokemon"
+        :show-answers="showAnswers"
+        @selection-pokemon="checkAnswer"
+        :pokemons="pokemonArr"
+      />
     </div>
-    
-    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-1/6 items-center justify-center"> 
-      
+
+    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-1/6 items-center justify-center">
       <p class=""> {{ message }}</p>
-    
       <button @click="newGame" class="font-bold">New Game</button>
-    </div>   
-    
-  </div>
-
-
+    </div>
+</div>
 </template>
-
