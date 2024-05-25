@@ -55,20 +55,7 @@
 </script>
 
 <template>
-  <div class="m-12">
-    <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
-    <div class="flex justify-center text-4xl font-bold mt-12">
-      <p> {{ streack }}</p>
-      <p v-if="streack == 10">Estas en racha de 10 puntos</p>
-    </div>
-
-    <PokemonOptions
-      :pokemon1="pokemon"
-      :show-pokemon="showPokemon"
-      :show-answers="showAnswers"
-      @selection-pokemon="checkAnswer"
-      :pokemons="pokemonArr"
-    />
+  <div class="p-5 bg-gray-400">
 
     <div class=" h-2/6">
       <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class="" />
