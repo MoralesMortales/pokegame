@@ -59,7 +59,9 @@
 </script>
 
 <template>
-
+<<<<<<< HEAD:src/App.vue
+  <div class="bg-gray-600 h-screen p-5 flex flex-col justify-around" id="container">
+=======
   <div class="m-12">
     <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
     <div class="flex justify-center text-4xl font-bold mt-12">
@@ -68,11 +70,14 @@
     </div>
 
     <PokemonOptions
+    
     :pokemon1="pokemon" 
     :show-pokemon="showPokemon" 
     :show-answer="showAnswers"
     @selection-pokemon="checkAnswer" 
-    :pokemons="pokemonArr"/> 
+    :pokemons="pokemonArr" /> 
+  </div>
+>>>>>>> a690b2139c2300cd4cf756ebc76f43d77a43ac03:Desktop/copia/programar/proyectos/pokemon-guesser/pokemon/src/App.vue
 
     <div class=" h-2/6">
     
@@ -106,3 +111,4 @@
 
 
 </template>
+
