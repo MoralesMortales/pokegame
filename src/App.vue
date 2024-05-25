@@ -70,7 +70,7 @@
     
     :pokemon1="pokemon" 
     :show-pokemon="showPokemon" 
-    :show-answer="showAnswers"
+    :show-answers="showAnswers"
     @selection-pokemon="checkAnswer" 
     :pokemons="pokemonArr" /> 
   </div>
