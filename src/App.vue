@@ -70,8 +70,15 @@
       {{ streack }}
     </div>
 
-    <div class="2/6">
-      <PokemonOptions @selection-pokemon="checkAnswer" :pokemons="pokemonArr" /> 
+    <div class="">
+      
+      <PokemonOptions 
+      :pokemon1="pokemon"
+      :show-pokemon="showPokemon" 
+      :show-answers="showAnswers" 
+      @selection-pokemon="checkAnswer" 
+      :pokemons="pokemonArr"/>
+
     </div>
     
     <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-1/6 items-center justify-center"> 
