@@ -5,7 +5,6 @@
   import PokemonOptions from './components/PokemonOptions.vue';
   import PokemonPicture from './components/PokemonPicture.vue';
   
-
   const pokemonArr = ref<any>([])
   const pokemon = ref<Pokemon>()
   const showPokemon = ref<boolean>(false)
@@ -21,6 +20,7 @@
   }
 
   const checkAnswer = (selectedId: number)=>{
+
     showPokemon.value = true
     showAnswers.value = true
 
@@ -44,7 +44,7 @@
       message.value = motivationalMessage[randomInt]
     }
   }
-
+  
   const newGame =()=>{
     showPokemon.value = false
     showAnswers.value = false
@@ -58,20 +58,31 @@
 </script>
 
 <template>
-  <div class="m-12">
-    <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
-    <div class="flex justify-center text-4xl font-bold mt-12">
-       {{ streack }}
-    </div>
-    <PokemonOptions @selection-pokemon="checkAnswer" :pokemons="pokemonArr" /> 
-  </div>
+  <div class="bg-gray-600 h-screen p-5 flex flex-col justify-around" id="container">
 
-  <div v-if="showAnswers" class="flex flex-col text-center">
-    <p class="text-3xl font-bold"> {{ message }}</p>
-    <div>
+    <div class=" h-2/6">
+    
+      <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class=""/>  
+  
+    </div>
+
+    <div class="flex justify-center text-4xl font-bold h-1/6 items-center">
+      {{ streack }}
+    </div>
+
+    <div class="2/6">
+      <PokemonOptions @selection-pokemon="checkAnswer" :pokemons="pokemonArr" /> 
+    </div>
+    
+    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-1/6 items-center justify-center"> 
+      
+      <p class=""> {{ message }}</p>
+    
       <button @click="newGame" class="font-bold">New Game</button>
     </div>   
+    
   </div>
+
 
 </template>
 

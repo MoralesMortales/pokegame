@@ -1,7 +1,7 @@
 <template>
-    <div  class="flex justify-center">
-        <img v-if="!showPokemon" class="hidden-pokemon w-96 h-96":src="img" alt="imagen-pokemon" />
-        <img v-else :src="img" alt="imagen-pokemon" class="w-96 h-96"/>
+    <div  class="flex justify-center h-full">
+        <img v-if="!showPokemon" class="hidden-pokemon h-full max-h-full":src="img" alt="imagen-pokemon" />
+        <img v-else :src="img" alt="imagen-pokemon" class="h-full"/>
     </div>
 </template>
 
@@ -12,7 +12,6 @@
     }>()
 
     const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ props.pokemonId }.svg`;
-
 
 </script>
 
