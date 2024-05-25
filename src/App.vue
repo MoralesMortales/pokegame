@@ -55,7 +55,7 @@
 </script>
 
 <template>
-  <div class="p-5 bg-gray-400">
+  <div class="p-5 bg-gray-400 h-screen justify-around  flex flex-col">
 
     <div class=" h-2/6">
       <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class="" />
@@ -75,7 +75,7 @@
       />
     </div>
 
-    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-1/6 items-center justify-center">
+    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-3/6 items-center justify-center">
       <p class=""> {{ message }}</p>
       <button @click="newGame" class="font-bold">New Game</button>
     </div>
