@@ -59,6 +59,7 @@
 </script>
 
 <template>
+
   <div class="m-12">
     <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" />
     <div class="flex justify-center text-4xl font-bold mt-12">
@@ -67,13 +68,11 @@
     </div>
 
     <PokemonOptions
-    
     :pokemon1="pokemon" 
     :show-pokemon="showPokemon" 
     :show-answer="showAnswers"
     @selection-pokemon="checkAnswer" 
-    :pokemons="pokemonArr" /> 
-  </div>
+    :pokemons="pokemonArr"/> 
 
     <div class=" h-2/6">
     
