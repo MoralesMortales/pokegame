@@ -11,7 +11,7 @@ export default defineConfig({
     vueJsx(),
   ],
   
-   base:'/dist/'
+  base:'/dist/', 
 
   resolve: {
     alias: {
