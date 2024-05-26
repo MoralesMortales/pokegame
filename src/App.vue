@@ -32,7 +32,7 @@
         `Marico debe ser que te lanzaron contra el suelo de pequeño, eso es un ${pokemon.value?.name}`,
         `Mamabicho te encanta que te maltraten?, eso es un ${pokemon.value?.name}`,
         `Eres marico o te amamantaban con pegamento?, eso es un ${pokemon.value?.name}`,
-        `Eres jugador de fate? porque te faltan neuronas, eso es un ${pokemon.value?.name}`,
+        `Eres feliz? porque te faltan neuronas, eso es un ${pokemon.value?.name}`,
         `Desgracia familiar, eso es un ${pokemon.value?.name}`,
         `Fenomeno de 3 cromosomas, eso es un ${pokemon.value?.name}`,
         `te falta escencia, eso es un ${pokemon.value?.name}`,
@@ -55,17 +55,17 @@
 </script>
 
 <template>
-  <div class="p-5 bg-gray-400 h-screen justify-around  flex flex-col">
+  <div class="p-5 bg-gray-400  h-screen justify-around gap-2 flex flex-col">
 
-    <div class=" h-2/6">
+    <div class=" h-1/6 ">
       <PokemonPicture :show-pokemon="showPokemon" v-if="pokemon" :pokemon-id="pokemon.id" class="" />
     </div>
 
-    <div class="flex justify-center text-4xl font-bold h-1/6 items-center">
+    <div class="flex justify-center text-4xl font-bold h-1/6 py-2 items-center">
       {{ streack }}
     </div>
 
-    <div class="">
+    <div class="h-3/6 justify-around flex flex-col w-full">
       <PokemonOptions
         :pokemon1="pokemon"
         :show-pokemon="showPokemon"
@@ -75,7 +75,7 @@
       />
     </div>
 
-    <div v-if="showAnswers" class="flex flex-col text-center gap-3 h-3/6 items-center justify-center">
+    <div v-if="showAnswers" class="flex flex-col text-center h-2/6 items-center justify-around">
       <p class=""> {{ message }}</p>
       <button @click="newGame" class="font-bold">New Game</button>
     </div>
