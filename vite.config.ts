@@ -11,7 +11,7 @@ export default defineConfig({
     vueJsx(),
   ],
   
-  base:'/pokemon/', //pokemon es la ruta del proyecto
+  // base:'/pokemon/', pokemon es la ruta del proyecto
 
   resolve: {
     alias: {
