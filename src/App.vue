@@ -24,18 +24,18 @@
 
     if (selectedId === pokemon.value?.id) {
       streack.value++;
-      message.value = `Correcto, era un ${pokemon.value.name}`;
+      message.value = `Well done, it was a ${pokemon.value.name}`;
     } else {
       streack.value = 0;
       const motivationalMessage = [
-        `Mira huele pega, eso es un ${pokemon.value?.name}`,
-        `Marico debe ser que te lanzaron contra el suelo de pequeño, eso es un ${pokemon.value?.name}`,
-        `Mamabicho te encanta que te maltraten?, eso es un ${pokemon.value?.name}`,
-        `Eres marico o te amamantaban con pegamento?, eso es un ${pokemon.value?.name}`,
-        `Eres feliz? porque te faltan neuronas, eso es un ${pokemon.value?.name}`,
-        `Desgracia familiar, eso es un ${pokemon.value?.name}`,
-        `Fenomeno de 3 cromosomas, eso es un ${pokemon.value?.name}`,
-        `te falta escencia, eso es un ${pokemon.value?.name}`,
+        `That is not right, the answer is a ${pokemon.value?.name}`,
+        `Wrong answer, the right one is a ${pokemon.value?.name}`,
+        `Try again, it is a ${pokemon.value?.name}`,
+        `No... It is a ${pokemon.value?.name}`,
+        `Almost there, it was a ${pokemon.value?.name}`,
+        `Another shot? It was a ${pokemon.value?.name}`,
+        `Wrong, try again, it was a ${pokemon.value?.name}`,
+        `Quite based, but no, it is a ${pokemon.value?.name}`,
       ];
       const randomInt = Math.floor(Math.random() * motivationalMessage.length);
       message.value = motivationalMessage[randomInt];
